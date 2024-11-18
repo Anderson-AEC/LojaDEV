@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Loja de Utilidades DEV</title>
+</head>
+<body>
+    <header>
+        <div class="logoNome">
+            <div class="caixaCabecalho">
+                <div class="logo">
+                <img class="imgLogo" src="img/logoLojaDEV-removebg-preview.png" alt="logo da loja DEV">    
+                </div>
+    
+                <h1> Loja de Utilidades DEV</h1>
+            </div>
+        </div>
+        
+        <div class="compras">
+            <nav>
+                <img class="carrinhoCompras" src="img/carrinho.png" alt="">
+                <button class="botaoCarrinho" onclick="mostrarCarrinho()">Carrinho</button>
+
+            </nav>
+        </div>
+
+    </header>
+    <main>
+        <div class="caixaProdutos">
+            <button class="botaoVolta" onclick="moverCarrossel (-1)"><</button>
+            <div class="carrossel" id="carrossel"></div>
+            <button class="botaoVai" onclick="moverCarrossel (1)">></button>
+
+        </div>
+        <!-- Carrinho -->
+        <div id="carrinho" class="carrinho-container" style="display: none;">
+            <div id="itens-carrinho"></div>
+            <div id="total-carrinho"></div>
+            <div class="frete-calculador">
+                <input type="text" id="campoCep" placeholder="Digite seu CEP" maxlength="8">
+                <button onclick="calcularFrete()">Calcular Frete</button>
+                <div id="resultado-frete"></div>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <!-- Footer da página -->
+        <p>&copy; 2024 Loja de Utilidades DEV</p>
+        <div class="gif-container">
+            <img src="img/gato1.gif" alt="Gif do footer" id="loopGif">
+        </div>
+    </footer>
+    <script src="logica.js"></script>
+
+    
+</body>
+</html>
