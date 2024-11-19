@@ -146,7 +146,7 @@ main {
 .produto {
     flex: 0 0 20%;
     max-width: 20%;
-    min-width: 150px;
+    min-width: 250px;
     padding: 1rem;
     margin: 0.5rem;
     border: 1px solid #ddd;
@@ -157,9 +157,17 @@ main {
 }
 
 .produto img {
-    width: 100%;
-    height: auto;
+    height: 120px;
+    width: 150px;
     border-radius: 8px;
+}
+
+.botaoAdicionar {
+    border: none;
+    color: #e74c3c;
+    background-color: white;
+    cursor: pointer; 
+   
 }
 
 .botaoVolta,
@@ -305,4 +313,18 @@ footer {
     }
 }
 
-@media (max-width:485px){ .gif-container{ visibility: hidden; } }
+@media (max-width:485px){
+    .gif-container{ visibility: hidden; } 
+    
+    .produto {
+        max-width: 20%;
+        min-width: 150px;
+    }
+    
+    .produto img {
+        height: 70px;
+        width: 100px;
+        border-radius: 8px;
+    }
+    
+}

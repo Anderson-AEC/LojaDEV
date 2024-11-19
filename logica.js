@@ -1,10 +1,10 @@
 const produtos = [
     { id: 1, nome: "Teclado Ctrl+C Ctrl+V", preco: 149.90, imagem: "img/ctrol CV.jpg" },
     { id: 2, nome: "Papel Higiênico Debug", preco: 29.90, imagem: "img/papel higienico.jpg" },
-    { id: 3, nome: "Café Overflow", preco: 39.90, imagem: "/api/placeholder/200/200" },
-    { id: 4, nome: "Mouse Sem Bug", preco: 99.90, imagem: "/api/placeholder/200/200" },
+    { id: 3, nome: "Café Foco Total", preco: 39.90, imagem: "img/cafe.jpg" },
+    { id: 4, nome: "Namorada Virtual", preco: 99.90, imagem: "img/namorada.jpg" },
     { id: 5, nome: "Caneca Null", preco: 49.90, imagem: "img/chicara.jpg" },
-    { id: 6, nome: "Almofada 404", preco: 79.90, imagem: "/api/placeholder/200/200" }
+    { id: 6, nome: "Pet preguiçoso", preco: 79.90, imagem: "img/gato esperando.jpg" }
 ];
 
 // Obtém o elemento do GIF pela ID
@@ -36,7 +36,7 @@ function inicializarCarrossel() {
             <img src="${produto.imagem}" alt="${produto.nome}">
             <h3>${produto.nome}</h3>
             <p>R$ ${produto.preco.toFixed(2)}</p>
-            <button onclick="adicionarAoCarrinho(${produto.id})">Adicionar</button>
+            <button class="botaoAdicionar" onclick="adicionarAoCarrinho(${produto.id})">Adicionar</button>
         `;
         carrossel.appendChild(card);
     });
