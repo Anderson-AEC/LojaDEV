@@ -456,13 +456,91 @@ footer {
     }
 }
 
-@media (max-width: 485px) {
+/* Media query para telas com largura máxima de 425px */
+@media (max-width: 425px) {
+    
+    /* Ajustes no produto */
     .produto {
-        flex: 0 0 200px;
+        flex: 0 0 100%; /* Faz o card ocupar toda a largura disponível */
+        margin-bottom: 15px; /* Menor espaçamento entre os cards */
+        padding: 10px; /* Ajuste no padding dos cards */
+        box-sizing: border-box; /* Garante que o padding não ultrapasse o tamanho do card */
     }
 
     .produto img {
-        width: 150px;
-        height: 150px;
+        width: 100%; /* Ajusta a imagem para ocupar toda a largura do card */
+        height: auto; /* Mantém a proporção da imagem */
+    }
+
+    /* Layout do cabeçalho */
+    header {
+        max-height: 70px; /* Limita a altura do cabeçalho */
+        display: flex; /* Utiliza flexbox para alinhar os itens */
+        justify-content: space-between; /* Distribui os itens entre a logo e os botões */
+        align-items: center; /* Centraliza verticalmente os itens */
+        padding: 5px 10px; /* Reduz o padding para uma tela menor */
+        flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha em telas pequenas */
+    }
+
+    /* Contêiner da logo e do nome da loja */
+    .logoNome {
+        display: flex; /* Exibe logo e título lado a lado */
+        align-items: center; /* Alinha verticalmente */
+        gap: 5px; /* Diminui o espaço entre logo e nome */
+        flex: 1; /* Permite que ocupe o máximo de espaço possível */
+        justify-content: flex-start; /* Alinha à esquerda */
+    }
+
+    /* Logo */
+    .imgLogo {
+        width: 35px; /* Reduz a logo */
+    }
+
+    h1 {
+        display: none; /* Oculta o título em telas pequenas */
+    }
+
+    /* Ajustes no container dos botões */
+    .compras {
+        display: flex; /* Exibe os botões lado a lado */
+        gap: 5px; /* Reduz o espaçamento entre os botões */
+        margin-left: auto; /* Empurra os botões para a extremidade direita */
+        justify-content: flex-end; /* Garante que os botões fiquem à direita */
+        align-items: center; /* Alinha verticalmente os botões */
+        flex: 1; /* Permite que os botões ocupem o máximo de espaço disponível */
+    }
+
+    /* Ajuste na classe cart-wrapper */
+    .cart-wrapper {
+        display: flex; /* Exibe os botões horizontalmente */
+        align-items: center; /* Alinha os itens verticalmente */
+    }
+
+    /* Ajuste no contador de itens do carrinho */
+    .cart-count {
+        margin-right: 5px; /* Ajusta o espaçamento entre o contador e o botão */
+        font-size: 12px; /* Ajusta o tamanho do texto */
+    }
+
+    /* Estilo para os botões */
+    .botaoCarrinho, .edicao-produto {
+        padding: 5px 8px; /* Ajusta o padding dos botões */
+        font-size: 10px; /* Ajusta o tamanho da fonte dos botões */
+        white-space: nowrap; /* Garante que o texto não quebre */
+    }
+
+    /* Remover GIFs */
+    .glitch {
+        display: none; /* Remove a animação de glitch */
+    }
+
+    /* Ajustes no layout da lista de produtos */
+    .produtos {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Ajuste para os cards ficarem em várias colunas */
+        gap: 10px; /* Ajuste do espaçamento entre os cards */
+        padding: 0 10px; /* Adiciona padding nas laterais */
     }
 }
+
+
