@@ -1,22 +1,33 @@
-/* Importação da fonte Share Tech Mono do Google Fonts */
+Sair
+ESC
+
+Ver no GitHub
+G
+Cru
+Diff
+
+Vamos atualizar o arquivo style.css para corrigir esses estilos de botão:
+
+src/style.css
+/* Importação de fontes e reset */
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
-/* Reset básico de estilos */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Variáveis de cores do tema */
+/* Variáveis e configurações base */
 :root {
     --neon-green: #00ff00;
     --neon-pink: #ff00ff;
     --dark-bg: #0a0a0a;
     --cyber-blue: #0ff;
+    --modal-bg: rgba(10, 10, 10, 0.95);
 }
 
-/* Estilos do corpo da página */
+/* Estilos base */
 body {
     min-height: 100vh;
     display: flex;
@@ -28,7 +39,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Background com efeito Matrix */
+/* Background e efeitos */
 .matrix-bg {
     position: fixed;
     top: 0;
@@ -41,7 +52,7 @@ body {
     animation: matrixEffect 20s linear infinite;
 }
 
-/* Efeito glitch no título */
+/* Efeitos de texto */
 .glitch {
     position: relative;
     color: var(--neon-green);
@@ -70,7 +81,7 @@ body {
     animation: glitch-2 2s infinite linear alternate-reverse;
 }
 
-/* Estilos do cabeçalho */
+/* Layout do cabeçalho */
 header {
     background: rgba(10, 10, 10, 0.9);
     border: 1px solid var(--neon-green);
@@ -84,20 +95,19 @@ header {
     box-shadow: 0 0 10px var(--neon-green);
 }
 
-/* Container do logo e nome */
+/* Componentes do cabeçalho */
 .logoNome .caixaCabecalho {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-/* Imagem do logo */
 .imgLogo {
     width: 100px;
     filter: drop-shadow(0 0 5px var(--neon-green));
 }
 
-/* Container dos produtos */
+/* Carrossel e produtos */
 .caixaProdutos {
     position: relative;
     width: 100%;
@@ -105,7 +115,6 @@ header {
     padding: 2rem 0;
 }
 
-/* Estilos do carrossel */
 .carrossel {
     display: flex;
     transition: transform 0.5s ease-in-out;
@@ -113,7 +122,118 @@ header {
     padding: 0 2rem;
 }
 
-/* Card de produto */
+/* Botões de navegação do carrossel */
+.botaoVolta,
+.botaoVai {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: 2px solid var(--cyber-blue);
+    color: var(--cyber-blue);
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.botaoVolta {
+    left: 1rem;
+}
+
+.botaoVai {
+    right: 1rem;
+}
+
+.botaoVolta:hover,
+.botaoVai:hover {
+    background: var(--cyber-blue);
+    color: var(--dark-bg);
+    box-shadow: 0 0 15px var(--cyber-blue);
+}
+
+/* Botões de carrinho e edição */
+.botaoCarrinho,
+.edicao-produto,
+.cyber-button {
+    position: relative;
+    padding: 10px 20px;
+    border: 2px solid var(--cyber-blue);
+    background: transparent;
+    color: var(--cyber-blue);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    overflow: hidden;
+    transition: 0.5s;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 5px;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.botaoCarrinho:before,
+.edicao-produto:before,
+.cyber-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(0,255,255,0.3), transparent);
+    transition: 0.5s;
+}
+
+.botaoCarrinho:hover:before,
+.edicao-produto:hover:before,
+.cyber-button:hover:before {
+    left: 100%;
+}
+
+.botaoCarrinho:hover,
+.edicao-produto:hover,
+.cyber-button:hover {
+    color: var(--dark-bg);
+    background: var(--cyber-blue);
+    box-shadow: 0 0 10px var(--cyber-blue),
+                0 0 20px var(--cyber-blue),
+                0 0 40px var(--cyber-blue);
+}
+
+/* Botões de adicionar/remover produto */
+.btn-adicionar-produto,
+.btn-remover-produto {
+    padding: 5px 15px;
+    margin: 0 5px;
+    border: 2px solid var(--neon-green);
+    background: transparent;
+    color: var(--neon-green);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.2em;
+}
+
+.btn-adicionar-produto:hover {
+    background: var(--neon-green);
+    color: var(--dark-bg);
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+.btn-remover-produto {
+    border-color: var(--neon-pink);
+    color: var(--neon-pink);
+}
+
+.btn-remover-produto:hover {
+    background: var(--neon-pink);
+    color: var(--dark-bg);
+    box-shadow: 0 0 10px var(--neon-pink);
+}
+
+/* Cards de produto */
 .produto {
     flex: 0 0 300px;
     background: rgba(10, 10, 10, 0.8);
@@ -121,19 +241,16 @@ header {
     border-radius: 15px;
     padding: 1.5rem;
     text-align: center;
-    max-height: 245px;
     transform: perspective(1000px) rotateY(0deg);
     transition: transform 0.5s ease;
     box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
 }
 
-/* Hover no card de produto */
 .produto:hover {
     transform: perspective(1000px) rotateY(10deg) translateY(-10px);
     box-shadow: 0 0 30px rgba(0, 255, 0, 0.4);
 }
 
-/* Imagem do produto */
 .produto img {
     width: 120px;
     height: 120px;
@@ -143,36 +260,13 @@ header {
     border: 2px solid var(--neon-pink);
 }
 
-/* Botões com efeito neon */
-.neon-button {
-    background: transparent;
-    border: 1px solid var(--neon-green);
-    color: var(--neon-green);
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Share Tech Mono', monospace;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: all 0.3s ease;
-    text-shadow: 0 0 5px var(--neon-green);
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
-}
-
-/* Hover nos botões neon */
-.neon-button:hover {
-    background: var(--neon-green);
-    color: var(--dark-bg);
-    box-shadow: 0 0 20px var(--neon-green);
-}
-
-/* Container do carrinho */
+/* Carrinho */
 .carrinho-container {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
     width: 400px;
-    background: rgba(10, 10, 10, 0.95);
+    background: var(--modal-bg);
     border: 1px solid var(--neon-green);
     border-radius: 15px;
     padding: 2rem;
@@ -180,40 +274,7 @@ header {
     z-index: 1000;
 }
 
-/* Campo de input com estilo cyber */
-.cyber-input {
-    background: rgba(0, 0, 0, 0.7);
-    border: 1px solid var(--neon-green);
-    color: var(--neon-green);
-    padding: 0.5rem;
-    border-radius: 5px;
-    width: 100%;
-    margin-bottom: 1rem;
-    font-family: 'Share Tech Mono', monospace;
-}
-
-/* Botão com estilo cyber */
-.cyber-button {
-    background: var(--neon-green);
-    color: var(--dark-bg);
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Share Tech Mono', monospace;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    width: 100%;
-    transition: all 0.3s ease;
-}
-
-/* Hover no botão cyber */
-.cyber-button:hover {
-    background: var(--neon-pink);
-    box-shadow: 0 0 15px var(--neon-pink);
-}
-
-/* Estilos do rodapé */
+/* Rodapé */
 footer {
     margin-top: auto;
     padding: 1rem;
@@ -221,69 +282,153 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
 }
 
-/* Conteúdo central do footer */
 .footer-content {
     text-align: center;
     flex: 1;
 }
-
-/* Container dos ícones sociais */
+ 
+/* Ícones sociais */
 .social-icons {
     display: flex;
     justify-content: center;
     gap: 1rem;
     margin-top: 1rem;
 }
-
-/* Ícones sociais */
+ 
 .social-icon {
     width: 40px;
     height: 40px;
     transition: transform 0.3s ease;
 }
-
-/* Hover nos ícones sociais */
+ 
 .social-icon:hover {
     transform: scale(1.2);
 }
-
-/* Imagens dos ícones sociais */
+ 
 .social-icon img {
     width: 50px;
     height: 50px;
 }
-
-/* Container dos GIFs */
+ 
+/* GIFs */
 .gif-container {
     max-width: 150px;
 }
-
-/* GIF à esquerda */
+ 
 .gif-container.left {
     position: relative;
     left: 0;
 }
-
-/* GIF à direita */
+ 
 .gif-container.right {
     position: relative;
     right: 0;
 }
-
-/* Imagens dos GIFs */
+ 
 .gif-container img {
     width: 100%;
     height: auto;
     border-radius: 8px;
 }
 
-/* Texto com efeito neon */
-.neon-text {
-    color: var(--neon-green);
-    text-shadow: 0 0 5px var(--neon-green);
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #111;
+    border: 2px solid var(--cyber-blue);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 0 20px var(--cyber-blue);
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+.modal-header {
+    color: var(--cyber-blue);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.modal-form-group {
+    margin-bottom: 1rem;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--cyber-blue);
+    color: var(--cyber-blue);
+    border-radius: 5px;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.modal-input::placeholder {
+    color: rgba(0, 255, 255, 0.5);
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.modal-button {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Share Tech Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.modal-button-confirm {
+    background: var(--cyber-blue);
+    color: #111;
+}
+
+.modal-button-cancel {
+    background: #ff0055;
+    color: white;
+}
+
+.modal-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px currentColor;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Animações */
@@ -302,7 +447,7 @@ footer {
     100% { background-position: 100% 100%; }
 }
 
-/* Media Queries para responsividade */
+/* Responsividade */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -312,7 +457,6 @@ footer {
     
     .produto {
         flex: 0 0 250px;
-        max-height: none;
     }
 
     .carrinho-container {
@@ -320,17 +464,9 @@ footer {
         left: 50%;
         transform: translateX(-50%);
     }
-
-    .gif-container {
-        max-width: 100px;
-    }
 }
 
 @media (max-width: 485px) {
-    .gif-container {
-        display: none;
-    }
-    
     .produto {
         flex: 0 0 200px;
     }
