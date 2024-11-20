@@ -1,60 +1,118 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <!-- Configurações básicas do documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link para o arquivo de estilos CSS -->
     <link rel="stylesheet" href="style.css">
+    <!-- Título da página -->
     <title>Loja de Utilidades DEV</title>
+    <!-- Importação da fonte Share Tech Mono do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Background com efeito Matrix -->
+    <div class="matrix-bg"></div>
+    
+    <!-- Cabeçalho da página -->
     <header>
+        <!-- Container para logo e nome da loja -->
         <div class="logoNome">
             <div class="caixaCabecalho">
                 <div class="logo">
-                <img class="imgLogo" src="img/logoLojaDEV.png" alt="logo da loja DEV">    
+                    <!-- Logo da loja -->
+                    <img class="imgLogo" src="img/logoLojaDEV.png" alt="logo da loja DEV">    
                 </div>
-    
-                <h1> Loja de Utilidades DEV</h1>
+                <!-- Título principal com efeito glitch -->
+                <h1 class="glitch" data-text="Loja de Utilidades DEV">Loja de Utilidades DEV</h1>
             </div>
         </div>
         
+        <!-- Seção do carrinho de compras -->
         <div class="compras">
             <nav>
-                <img class="carrinhoCompras" src="img/carrinho.png" alt="">
-                <button class="botaoCarrinho" onclick="mostrarCarrinho()">Carrinho</button>
-
+                <!-- Wrapper do carrinho com contador -->
+                <div class="cart-wrapper">
+                    <!-- Contador de itens no carrinho -->
+                    <span class="cart-count">0</span>
+                    <!-- Botão para mostrar/esconder carrinho -->
+                    <button class="botaoCarrinho neon-button" onclick="mostrarCarrinho()">Carrinho</button>
+                </div>
             </nav>
         </div>
-
     </header>
-    <main>
-        <div class="caixaProdutos">
-            <button class="botaoVolta" onclick="moverCarrossel (-1)"><</button>
-            <div class="carrossel" id="carrossel"></div>
-            <button class="botaoVai" onclick="moverCarrossel (1)">></button>
 
+    <!-- Conteúdo principal -->
+    <main>
+        <!-- Container do carrossel de produtos -->
+        <div class="caixaProdutos">
+            <!-- Botão para mover carrossel para esquerda -->
+            <button class="botaoVolta neon-button" onclick="moverCarrossel(-1)">◀</button>
+            <!-- Carrossel de produtos -->
+            <div class="carrossel" id="carrossel"></div>
+            <!-- Botão para mover carrossel para direita -->
+            <button class="botaoVai neon-button" onclick="moverCarrossel(1)">▶</button>
         </div>
-        <!-- Carrinho -->
-        <div id="carrinho" class="carrinho-container" style="display: none;">
+
+        <!-- Container do carrinho de compras -->
+        <div id="carrinho" class="carrinho-container cyber-card" style="display: none;">
+            <!-- Cabeçalho do carrinho -->
+            <div class="cyber-header">Seu Carrinho</div>
+            <!-- Lista de itens no carrinho -->
             <div id="itens-carrinho"></div>
-            <div id="total-carrinho"></div>
+            <!-- Total da compra -->
+            <div id="total-carrinho" class="total-section"></div>
+            <!-- Calculadora de frete -->
             <div class="frete-calculador">
-                <input type="text" id="campoCep" placeholder="Digite seu CEP" maxlength="8">
-                <button onclick="calcularFrete()">Calcular Frete</button>
-                <div id="resultado-frete"></div>
+                <!-- Campo para inserir CEP -->
+                <input type="text" id="campoCep" class="cyber-input" placeholder="Digite seu CEP" maxlength="9">
+                <!-- Botão para calcular frete -->
+                <button onclick="calcularFrete()" class="cyber-button">Calcular Frete</button>
+                <!-- Resultado do cálculo do frete -->
+                <div id="resultado-frete" class="frete-result"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé da página -->
+    <footer>
+        <!-- GIF decorativo à esquerda -->
+        <div class="gif-container left">
+            <img src="img/gato1.gif" alt="Gif do footer esquerdo" class="cyber-gif">
+        </div>
+        
+        <!-- Conteúdo central do footer -->
+        <div class="footer-content">
+            <!-- Copyright -->
+            <p class="neon-text">&copy; 2024 Loja de Utilidades DEV</p>
+            <!-- Ícones de redes sociais -->
+            <div class="social-icons">
+                <!-- Link para Instagram -->
+                <a href="https://instagram.com" target="_blank" class="social-icon">
+                    <img src="img/instagran.png" alt="Instagram">
+                </a>
+                <!-- Link para GitHub -->
+                <a href="https://github.com" target="_blank" class="social-icon">
+                    <img src="img/github.png" alt="GitHub">
+                </a>
+                <!-- Link para LinkedIn -->
+                <a href="https://linkedin.com" target="_blank" class="social-icon">
+                    <img src="img/linkedin.png" alt="LinkedIn">
+                </a>
+                <!-- Link para WhatsApp -->
+                <a href="https://wa.me/seu-numero" target="_blank" class="social-icon">
+                    <img src="img/whatsapp.png" alt="WhatsApp">
+                </a>
             </div>
         </div>
 
-    </main>
-    <footer>
-        <!-- Footer da página -->
-        <p>&copy; 2024 Loja de Utilidades DEV</p>
-        <div class="gif-container">
-            <img src="img/gato1.gif" alt="Gif do footer" id="loopGif">
+        <!-- GIF decorativo à direita -->
+        <div class="gif-container right">
+            <img src="img/gato1.gif" alt="Gif do footer direito" id="loopGif" class="cyber-gif">
         </div>
     </footer>
+    <!-- Script principal da aplicação -->
     <script src="logica.js"></script>
-
-    
 </body>
 </html>
