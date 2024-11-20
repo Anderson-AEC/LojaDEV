@@ -9,7 +9,7 @@ Uma loja online fictícia com tema cyberpunk, onde você encontra utilidades e g
 
 📌 **Deploy Online:**  
 Clique no link abaixo para acessar a loja:  
-[🔗 Acessar no Vercel](https://loja-dev-xi.vercel.app/) *(substitua pelo link do seu projeto deployado)*  
+[🔗 Acessar no Vercel](https://loja-dev-xi.vercel.app/) 
 
 ---
 
